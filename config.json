@@ -1,0 +1,20 @@
+{
+    "use_proxy": false,
+    "save_locked": true,
+    "save_invalid": true,
+    "only_save_token": false,
+    "capture": {
+        "id": true,
+        "username": true,
+        "email": true,
+        "phone": true,
+        "verified": true,
+        "bio" : true,
+        "local": true,
+        "mfa" : true,
+        "avatar" : true,
+        "nsfw" : true, 
+        "flags" : true,
+        "createdtime" : true
+    }
+}
