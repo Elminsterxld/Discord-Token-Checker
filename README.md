@@ -7,9 +7,7 @@ Fast Discord Token Checker with proxy support coded in node.js
 2. Download the files or clone the repo.
 3. Open a terminal in the same folder and run the following commands to install the required modules.
 
-```
-npm i 
-
+```npm i 
 ```
 
 ## Configuration
