@@ -59,6 +59,8 @@ let x =  new Date(timestamp).toUTCString()
 
   console.log(clc.green(` [+] Alive token: ${data.username}#${data.discriminator}\n ID: ${data.id} \n Email: ${data.email}\n Phone: ${data.phone} \n Verified: ${data.verified} \n Bio :${data.bio} \n Locale : ${data.locale} \n MFA : ${data.mfa_enabled} \n Avatar : https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.webp?size=128 \n Nsfw : ${data.nsfw_allowed} \n Flags :${data.flags} \n Creation Date : ${x}`))
             success += 1
+         setTitle(`Token Checker | Hits: ${success} | Invalid: ${invalid} | Locked: ${locked}`);
+  
             
             let content = '';
             if (config.only_save_token){
@@ -91,6 +93,8 @@ let x =  new Date(timestamp).toUTCString()
         else {
           console.log(clc.red("[!] Unknown error with token:", token, response.status))
           invalid += 1
+         setTitle(`Token Checker | Hits: ${success} | Invalid: ${invalid} | Locked: ${locked}`);
+  
           if (config.save_invalid){
             fs.appendFile(__dirname + '/invalid.txt', token+'\n', err => {
               if (err) console.log(clc.red('[!] Error saving invalid token to file'))
@@ -111,6 +115,8 @@ let x =  new Date(timestamp).toUTCString()
         else if (error.response.status === 401) {
           console.log(clc.red("[-] Bad token:", token))
           invalid += 1
+         setTitle(`Token Checker | Hits: ${success} | Invalid: ${invalid} | Locked: ${locked}`);
+  
           if (config.save_invalid){
             fs.appendFile(__dirname + '/invalid.txt', token+'\n', err => {
               if (err) console.log(clc.red('[!] Error saving invalid token to file'))
@@ -120,6 +126,8 @@ let x =  new Date(timestamp).toUTCString()
         else if (error.response.status == 403) {
           console.log(clc.yellow("[-] Locked token:", token))
           locked += 1
+         setTitle(`Token Checker | Hits: ${success} | Invalid: ${invalid} | Locked: ${locked}`);
+  
           if (config.save_locked){
             fs.appendFile(__dirname + '/locked.txt', token+'\n', err => {
               if (err) console.log(clc.red('[!] Error saving invalid token to file'))
@@ -129,6 +137,8 @@ let x =  new Date(timestamp).toUTCString()
         else {
           console.log(clc.red("[!] Unknown error with token:", token))
           invalid += 1
+         setTitle(`Token Checker | Hits: ${success} | Invalid: ${invalid} | Locked: ${locked}`);
+  
           if (config.save_invalid){
             fs.appendFile(__dirname + '/invalid.txt', token+'\n', err => {
               if (err) console.log(clc.red('[!] Error saving invalid token to file'))
